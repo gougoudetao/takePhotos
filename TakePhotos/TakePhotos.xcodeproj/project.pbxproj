@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		07024C3319B1BA090075091E /* cat.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 07024C3219B1BA090075091E /* cat.jpg */; };
 		3A0E0B1C19A44C8D00D6F401 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3A0E0B1B19A44C8D00D6F401 /* Foundation.framework */; };
 		3A0E0B1E19A44C8D00D6F401 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3A0E0B1D19A44C8D00D6F401 /* CoreGraphics.framework */; };
 		3A0E0B2019A44C8D00D6F401 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3A0E0B1F19A44C8D00D6F401 /* UIKit.framework */; };
@@ -41,6 +42,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		07024C3219B1BA090075091E /* cat.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = cat.jpg; path = ../cat.jpg; sourceTree = "<group>"; };
 		3A0E0B1819A44C8D00D6F401 /* TakePhotos.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TakePhotos.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		3A0E0B1B19A44C8D00D6F401 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		3A0E0B1D19A44C8D00D6F401 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -153,6 +155,7 @@
 		3A0E0B2219A44C8D00D6F401 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				07024C3219B1BA090075091E /* cat.jpg */,
 				3ADA30CB19AC72F400A2859C /* UIImage_Extension.h */,
 				3ADA30CC19AC72F400A2859C /* UIImage_Extension.m */,
 				3A0E0B2319A44C8D00D6F401 /* TakePhotos-Info.plist */,
@@ -259,6 +262,7 @@
 			files = (
 				3A0E0B3419A44C8D00D6F401 /* Images.xcassets in Resources */,
 				3A0E0B2619A44C8D00D6F401 /* InfoPlist.strings in Resources */,
+				07024C3319B1BA090075091E /* cat.jpg in Resources */,
 				3A0E0B2F19A44C8D00D6F401 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
