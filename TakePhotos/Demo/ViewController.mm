@@ -239,12 +239,15 @@ static const NSTimeInterval interval=1.0/FPS;
 - (IBAction)takePhotoPressed:(id)sender
 {
     NSString* documentPath=[self applicationDocumentsDirectoryPath];
-    NSString* filename=@"20140829142148.jpg";
+    NSString* filename=@"cat.jpg";
     NSString* imageFilename=[documentPath stringByAppendingPathComponent:filename];
     
-    cv::Mat image=cv::imread([imageFilename UTF8String]);
+    UIImage* catImage=[UIImage imageNamed:@"cat.jpg"];
+    cv::Mat image=[self cvMatFromUIImage:catImage];
+    
+    //cv::Mat image=cv::imread([imageFilename UTF8String]);
     NSLog(@"%d,%d",image.cols,image.rows);
-    cv::Mat resultImage(image.cols,image.rows,CV_8UC3);
+    cv::Mat resultImage(image.cols,image.rows,image.type());
     
     NSLog(@"%d,%d",resultImage.cols,resultImage.rows);
     
@@ -255,21 +258,22 @@ static const NSTimeInterval interval=1.0/FPS;
     
     for(int j=0;j<height;++j){
         for(int i=0;i<width;++i){
-            resultImage.at<cv::Vec4b>(width-1-i,j)[0]=image.at<cv::Vec4b>(j,i)[0];
-            resultImage.at<cv::Vec4b>(width-1-i,j)[1]=image.at<cv::Vec4b>(j,i)[1];
-            resultImage.at<cv::Vec4b>(width-1-i,j)[2]=image.at<cv::Vec4b>(j,i)[2];
+            resultImage.at<cv::Vec4b>(width-1-i,j)=image.at<cv::Vec4b>(j,i);
         }
     }
     
     NSString* saveFilename=[documentPath stringByAppendingPathComponent:@"test.jpg"];
-    cv::imwrite([saveFilename UTF8String], resultImage);
+    //cv::imwrite([saveFilename UTF8String], resultImage);
     
 
-    UIImage* rotatedImage=[self UIImageFromCVMat:image];
+    UIImage* rotatedImage=[self UIImageFromCVMat:resultImage];
+    
     resultView=[[UIImageView alloc]initWithFrame:imageView.bounds];
-    [resultView setImage:rotatedImage];
+    [resultView setImage:catImage];
     [self.view addSubview:resultView];
     
+    
+    [UIImageJPEGRepresentation(rotatedImage, 1.0)writeToFile:saveFilename atomically:YES];
     
     float* dataPtr=new float[11];
     
@@ -305,7 +309,7 @@ static const NSTimeInterval interval=1.0/FPS;
     
     writeToFileDictory=[dictionary copy];
     
-    [photoCamera takePicture];
+    //[photoCamera takePicture];
 }
 
 -(UIImage *)leftPixelRotation:(UIImage *)src
