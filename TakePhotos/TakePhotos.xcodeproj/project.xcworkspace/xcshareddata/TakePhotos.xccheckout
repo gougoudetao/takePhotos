@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>IDESourceControlProjectFavoriteDictionaryKey</key>
+	<false/>
+	<key>IDESourceControlProjectIdentifier</key>
+	<string>91032020-4ED6-488A-BC94-A46F2B4A273D</string>
+	<key>IDESourceControlProjectName</key>
+	<string>TakePhotos</string>
+	<key>IDESourceControlProjectOriginsDictionary</key>
+	<dict>
+		<key>A4B43DD4-E3DC-4AD4-8B6D-65CB2332F309</key>
+		<string>https://github.com/gougoudetao/takePhotos.git</string>
+	</dict>
+	<key>IDESourceControlProjectPath</key>
+	<string>TakePhotos/TakePhotos.xcodeproj/project.xcworkspace</string>
+	<key>IDESourceControlProjectRelativeInstallPathDictionary</key>
+	<dict>
+		<key>A4B43DD4-E3DC-4AD4-8B6D-65CB2332F309</key>
+		<string>../../..</string>
+	</dict>
+	<key>IDESourceControlProjectURL</key>
+	<string>https://github.com/gougoudetao/takePhotos.git</string>
+	<key>IDESourceControlProjectVersion</key>
+	<integer>110</integer>
+	<key>IDESourceControlProjectWCCIdentifier</key>
+	<string>A4B43DD4-E3DC-4AD4-8B6D-65CB2332F309</string>
+	<key>IDESourceControlProjectWCConfigurations</key>
+	<array>
+		<dict>
+			<key>IDESourceControlRepositoryExtensionIdentifierKey</key>
+			<string>public.vcs.git</string>
+			<key>IDESourceControlWCCIdentifierKey</key>
+			<string>A4B43DD4-E3DC-4AD4-8B6D-65CB2332F309</string>
+			<key>IDESourceControlWCCName</key>
+			<string>takePhotos</string>
+		</dict>
+	</array>
+</dict>
+</plist>

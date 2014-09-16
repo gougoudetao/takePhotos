@@ -162,45 +162,37 @@ static const NSTimeInterval interval=1.0/FPS;
 
 -(void)photoCamera:(CvPhotoCamera *)photoCamera capturedImage:(UIImage *)image
 {
-    cv::Mat frame=[self cvMatFromUIImage:image];
-    
-    UIImage* rotatedImage=[self UIImageFromCVMat:frame];
-    
-    //UIImage* rotatedImage=[self leftPixelRotation:image];
-    //UIImage* rotatedImage=[image rotation:UIImageOrientationLeft];
-    
-    
-    NSLog(@"image width:%f height:%f",rotatedImage.size.width,rotatedImage.size.height);
-    
-    
     [photoCamera stop];
     
-    //[takePhotoButton setEnabled:NO];
+    UIImage* rotatedImage=[UIImage imageWithCGImage:image.CGImage scale:1.0 orientation:UIImageOrientationUp];
     
-    //UIImageWriteToSavedPhotosAlbum(image, self, nil, dataPtr);
+    cv::Mat frame=[self cvMatFromUIImage:rotatedImage];
     
-//    UIAlertView *alert = [UIAlertView alloc];
-//    alert = [alert initWithTitle:@"保存图片"
-//                         message:@"已经保存"
-//                        delegate:nil
-//               cancelButtonTitle:@"继续"
-//               otherButtonTitles:nil];
-//    [alert show];
-//    
-//    NSString* documentPath=[self applicationDocumentsDirectoryPath];
-//    NSString* timeString=[self getCurrentTimeString];
-//    NSString* rotateFilename=[[documentPath stringByAppendingPathComponent:[timeString stringByAppendingString:@"rotated"]]stringByAppendingPathExtension:@"jpg"];
-//    NSString* imageFilename=[documentPath stringByAppendingPathComponent:[timeString stringByAppendingPathExtension:@"jpg"]];
-//    NSString* textFilename=[documentPath stringByAppendingPathComponent:[timeString stringByAppendingPathExtension:@"xml"]];
-//    NSLog(@"%@",imageFilename);
-//    NSLog(@"%@",textFilename);
-//    
-//    [UIImageJPEGRepresentation(rotatedImage, 1.0)writeToFile:rotateFilename atomically:YES];
-//    [UIImageJPEGRepresentation(image, 1.0)writeToFile:imageFilename atomically:YES];
-//    [writeToFileDictory writeToFile:textFilename atomically:YES];
+    cv::Mat resizedFrame;
+    cv::resize(frame, resizedFrame, cv::Size(640,480));
     
-//    [photoCamera start];
-//    [takePhotoButton setEnabled:YES];
+    UIImage* saveImage=MatToUIImage(resizedFrame);
+    
+    [takePhotoButton setEnabled:NO];
+    
+    //    UIAlertView *alert = [UIAlertView alloc];
+    //    alert = [alert initWithTitle:@"保存图片"
+    //                         message:@"已经保存"
+    //                        delegate:nil
+    //               cancelButtonTitle:@"继续"
+    //               otherButtonTitles:nil];
+    //    [alert show];
+    
+    NSString* documentPath=[self applicationDocumentsDirectoryPath];
+    NSString* timeString=[self getCurrentTimeString];
+    NSString* imageFilename=[documentPath stringByAppendingPathComponent:[timeString stringByAppendingPathExtension:@"jpg"]];
+    NSString* textFilename=[documentPath stringByAppendingPathComponent:[timeString stringByAppendingPathExtension:@"xml"]];
+    
+    [UIImageJPEGRepresentation(image, 1.0)writeToFile:imageFilename atomically:YES];
+    [writeToFileDictory writeToFile:textFilename atomically:YES];
+    
+    [photoCamera start];
+    [takePhotoButton setEnabled:YES];
 }
 
 -(NSString *)getCurrentTimeString
